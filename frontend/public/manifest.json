@@ -1,0 +1,9 @@
+{
+  "short_name": "Jordan Shop",
+  "name": "Air Jordan 1 Sneaker Shop",
+  "icons": [],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
