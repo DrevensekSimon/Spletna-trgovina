@@ -1,13 +1,29 @@
-FROM node:18
+# Multi-stage build za produkcijo
+FROM node:18-alpine AS builder
 
 WORKDIR /app
 
+# Kopiraj package.json in package-lock.json
 COPY package*.json ./
 
-RUN npm install
+# Instaliraj odvisnosti
+RUN npm ci --only=production
 
+# Kopiraj source code
 COPY . .
 
-EXPOSE 3000
+# Zgradi aplikacijo
+RUN npm run build
 
-CMD ["npm", "start"]
+# Production stage z nginx
+FROM nginx:alpine
+
+# Kopiraj build iz builder stage
+COPY --from=builder /app/build /usr/share/nginx/html
+
+# Kopiraj nginx konfiguracija
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
