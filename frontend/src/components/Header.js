@@ -14,7 +14,7 @@ function Header() {
       <div className="max-w-7xl mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="text-2xl font-bold tracking-tight">
-            SHOE<span className="text-red-500">SHOP</span>
+            JORDAN<span className="text-red-500">SHOP</span>
           </Link>
 
           {/* Desktop Nav */}
