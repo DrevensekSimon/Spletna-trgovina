@@ -244,10 +244,23 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Wait for SonarCloud Quality Gate
-        uses: sonarqube-quality-gate-action@master
-        timeout-minutes: 5
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: |
+          echo "Checking SonarCloud Quality Gate..."
+          sleep 30  # Wait for analysis to complete
+
+          # Get project status from SonarCloud API
+          QUALITY_GATE_STATUS=$(curl -s -u ${{ secrets.SONAR_TOKEN }}: \
+            "https://sonarcloud.io/api/qualitygates/project_status?projectKey=drevenseksimon_spletna-trgovina" \
+            | jq -r '.projectStatus.status')
+
+          echo "Quality Gate Status: $QUALITY_GATE_STATUS"
+
+          if [ "$QUALITY_GATE_STATUS" != "OK" ]; then
+            echo "Quality Gate failed! Status: $QUALITY_GATE_STATUS"
+            exit 1
+          else
+            echo "Quality Gate passed!"
+          fi
 
   # GitHub Pages deployment
   deploy-pages:
