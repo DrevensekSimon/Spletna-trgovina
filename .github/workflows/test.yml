@@ -12,10 +12,11 @@ env:
   DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
 
 jobs:
-  # Backend testi
+  # Backend testi z optimizacijami
   backend-tests:
     name: Backend Tests
     runs-on: ubuntu-latest
+    timeout-minutes: 10
 
     defaults:
       run:
@@ -25,30 +26,40 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Setup Node.js with enhanced caching
         uses: actions/setup-node@v4
         with:
           node-version: "18"
           cache: "npm"
           cache-dependency-path: backend/package-lock.json
 
-      - name: Install dependencies
-        run: npm ci
+      - name: Cache node_modules
+        uses: actions/cache@v4
+        with:
+          path: backend/node_modules
+          key: ${{ runner.os }}-backend-node-${{ hashFiles('backend/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-backend-node-
 
-      - name: Run tests with coverage
-        run: npm run test:ci
+      - name: Install dependencies
+        run: npm ci --prefer-offline --no-audit
+
+      - name: Run tests with parallelization
+        run: npm run test:ci -- --maxWorkers=2
 
       - name: Upload backend coverage report
         uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: backend-coverage-report
           path: backend/coverage/
-          retention-days: 30
+          retention-days: 7
 
-  # Frontend testi
+  # Frontend testi z optimizacijami
   frontend-tests:
     name: Frontend Tests
     runs-on: ubuntu-latest
+    timeout-minutes: 15
 
     defaults:
       run:
@@ -58,25 +69,34 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Setup Node.js with enhanced caching
         uses: actions/setup-node@v4
         with:
           node-version: "18"
           cache: "npm"
           cache-dependency-path: frontend/package-lock.json
 
-      - name: Install dependencies
-        run: npm install
+      - name: Cache node_modules
+        uses: actions/cache@v4
+        with:
+          path: frontend/node_modules
+          key: ${{ runner.os }}-frontend-node-${{ hashFiles('frontend/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-frontend-node-
 
-      - name: Run tests with coverage
-        run: npm run test:ci
+      - name: Install dependencies
+        run: npm ci --prefer-offline --no-audit
+
+      - name: Run tests with optimizations
+        run: npm test -- --coverage --watchAll=false --maxWorkers=2 --passWithNoTests
 
       - name: Upload frontend coverage report
         uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: frontend-coverage-report
           path: frontend/coverage/
-          retention-days: 30
+          retention-days: 7
 
   # Build faza
   build:
@@ -138,9 +158,153 @@ jobs:
           path: backend/
           retention-days: 30
 
-  # Docker build faza
+  # Docker build faza z optimizacijami
   docker-build:
     name: Build Docker Images
+    runs-on: ubuntu-latest
+    needs: [build]
+    if: success()
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download frontend build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: frontend-build
+          path: frontend/build/
+
+      - name: Set up Docker Buildx with advanced features
+        uses: docker/setup-buildx-action@v3
+        with:
+          driver-opts: |
+            image=moby/buildkit:buildx-stable-1
+            network=host
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ env.DOCKER_USERNAME }}
+          password: ${{ env.DOCKER_PASSWORD }}
+
+      - name: Extract metadata for Docker images
+        id: meta-backend
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.DOCKER_USERNAME }}/sneaker-shop-backend
+          tags: |
+            type=ref,event=branch
+            type=ref,event=pr
+            type=sha,prefix={{branch}}-
+            type=raw,value=latest,enable={{is_default_branch}}
+
+      - name: Extract metadata for frontend
+        id: meta-frontend
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.DOCKER_USERNAME }}/sneaker-shop-frontend
+          tags: |
+            type=ref,event=branch
+            type=ref,event=pr
+            type=sha,prefix={{branch}}-
+            type=raw,value=latest,enable={{is_default_branch}}
+
+      - name: Set environment tag
+        id: env-tag
+        run: |
+          if [[ "${{ github.ref }}" == "refs/heads/production" ]]; then
+            echo "tag=prod" >> $GITHUB_OUTPUT
+          else
+            echo "tag=dev" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Build and push backend Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: ./backend
+          push: true
+          tags: ${{ steps.meta-backend.outputs.tags }}
+          labels: ${{ steps.meta-backend.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          platforms: linux/amd64
+
+      - name: Build and push frontend Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: ./frontend
+          push: true
+          tags: ${{ steps.meta-frontend.outputs.tags }}
+          labels: ${{ steps.meta-frontend.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          platforms: linux/amd64
+
+      - name: Send metrics to Datadog
+        if: always()
+        run: |
+          # Send build metrics to Datadog
+          curl -X POST "https://api.datadoghq.com/api/v1/series" \
+          -H "Content-Type: application/json" \
+          -H "DD-API-KEY: ${{ secrets.DATADOG_API_KEY }}" \
+          -d '{
+            "series": [
+              {
+                "metric": "ci.docker.build.duration",
+                "points": [['$(date +%s)', ${{ job.duration || 0 }}]],
+                "tags": ["env:${{ steps.env-tag.outputs.tag }}", "branch:${{ github.ref_name }}"]
+              },
+              {
+                "metric": "ci.docker.build.status",
+                "points": [['$(date +%s)', ${{ job.status == 'success' && 1 || 0 }}]],
+                "tags": ["env:${{ steps.env-tag.outputs.tag }}", "branch:${{ github.ref_name }}"]
+              }
+            ]
+          }'
+
+  # Snyk Security Scanning
+  snyk-security:
+    name: Snyk Security Scan
+    runs-on: ubuntu-latest
+    needs: [backend-tests, frontend-tests]
+    if: success()
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+
+      - name: Install backend dependencies
+        working-directory: backend
+        run: npm ci
+
+      - name: Install frontend dependencies
+        working-directory: frontend
+        run: npm ci
+
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/node@master
+        continue-on-error: true
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          args: --all-projects --severity-threshold=high
+
+      - name: Upload Snyk results to GitHub Code Scanning
+        uses: github/codeql-action/upload-sarif@v3
+        if: always()
+        with:
+          sarif_file: snyk.sarif
+
+  # Docker Vulnerability Scanning
+  snyk-docker:
+    name: Snyk Docker Scan
     runs-on: ubuntu-latest
     needs: [build]
     if: success()
@@ -158,44 +322,34 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      - name: Login to Docker Hub
-        uses: docker/login-action@v3
-        with:
-          username: ${{ env.DOCKER_USERNAME }}
-          password: ${{ env.DOCKER_PASSWORD }}
-
-      - name: Set environment tag
-        id: env-tag
+      - name: Build Docker images for scanning
         run: |
-          if [[ "${{ github.ref }}" == "refs/heads/production" ]]; then
-            echo "tag=prod" >> $GITHUB_OUTPUT
-          else
-            echo "tag=dev" >> $GITHUB_OUTPUT
-          fi
+          docker build -t sneaker-shop-frontend:scan ./frontend
+          docker build -t sneaker-shop-backend:scan ./backend
 
-      - name: Build and push backend Docker image
-        uses: docker/build-push-action@v5
+      - name: Run Snyk to check Docker images
+        uses: snyk/actions/docker@master
+        continue-on-error: true
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
-          context: ./backend
-          push: true
-          tags: ${{ env.DOCKER_USERNAME }}/sneaker-shop-backend:latest,${{ env.DOCKER_USERNAME }}/sneaker-shop-backend:${{ steps.env-tag.outputs.tag }},${{ env.DOCKER_USERNAME }}/sneaker-shop-backend:${{ github.sha }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+          image: sneaker-shop-frontend:scan
+          args: --severity-threshold=high
 
-      - name: Build and push frontend Docker image
-        uses: docker/build-push-action@v5
+      - name: Run Snyk to check backend Docker image
+        uses: snyk/actions/docker@master
+        continue-on-error: true
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
-          context: ./frontend
-          push: true
-          tags: ${{ env.DOCKER_USERNAME }}/sneaker-shop-frontend:latest,${{ env.DOCKER_USERNAME }}/sneaker-shop-frontend:${{ steps.env-tag.outputs.tag }},${{ env.DOCKER_USERNAME }}/sneaker-shop-frontend:${{ github.sha }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+          image: sneaker-shop-backend:scan
+          args: --severity-threshold=high
 
   # SonarCloud Analysis
   sonarcloud:
     name: SonarCloud Analysis
     runs-on: ubuntu-latest
-    needs: [backend-tests, frontend-tests]
+    needs: [backend-tests, frontend-tests, snyk-security]
     if: success()
 
     steps:
