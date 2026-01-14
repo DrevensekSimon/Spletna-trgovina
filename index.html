@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="sl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spletna Trgovina - Projekt</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Arial", sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+
+      .card {
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        padding: 3rem;
+        margin: 2rem 0;
+        backdrop-filter: blur(10px);
+      }
+
+      h1 {
+        color: #2c3e50;
+        font-size: 3rem;
+        text-align: center;
+        margin-bottom: 1rem;
+        background: linear-gradient(45deg, #667eea, #764ba2);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      h2 {
+        color: #34495e;
+        font-size: 1.8rem;
+        margin: 2rem 0 1rem 0;
+        border-bottom: 3px solid #667eea;
+        padding-bottom: 0.5rem;
+      }
+
+      .subtitle {
+        text-align: center;
+        font-size: 1.2rem;
+        color: #7f8c8d;
+        margin-bottom: 3rem;
+      }
+
+      .team-member {
+        background: #f8f9fa;
+        padding: 1.5rem;
+        margin: 1rem 0;
+        border-radius: 10px;
+        border-left: 5px solid #667eea;
+        transition: transform 0.3s ease;
+      }
+
+      .team-member:hover {
+        transform: translateX(10px);
+      }
+
+      .member-name {
+        font-weight: bold;
+        color: #2c3e50;
+        font-size: 1.1rem;
+      }
+
+      .member-role {
+        color: #7f8c8d;
+        font-style: italic;
+      }
+
+      .description {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: #555;
+        text-align: justify;
+      }
+
+      .tech-stack {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin: 2rem 0;
+      }
+
+      .tech-item {
+        background: linear-gradient(45deg, #667eea, #764ba2);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 25px;
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+
+      .features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+      }
+
+      .feature {
+        background: #f8f9fa;
+        padding: 1.5rem;
+        border-radius: 10px;
+        text-align: center;
+        border: 2px solid transparent;
+        transition: all 0.3s ease;
+      }
+
+      .feature:hover {
+        border-color: #667eea;
+        transform: translateY(-5px);
+      }
+
+      .feature-icon {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      .github-link {
+        display: inline-block;
+        background: #333;
+        color: white;
+        padding: 1rem 2rem;
+        text-decoration: none;
+        border-radius: 50px;
+        margin: 2rem auto;
+        display: block;
+        width: fit-content;
+        transition: all 0.3s ease;
+      }
+
+      .github-link:hover {
+        background: #555;
+        transform: scale(1.05);
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 1rem;
+        }
+
+        h1 {
+          font-size: 2rem;
+        }
+
+        .card {
+          padding: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <h1>🛍️ Spletna Trgovina</h1>
+        <p class="subtitle">
+          Moderna spletna trgovina za čevlje z naprednim CI/CD pipeline-om
+        </p>
+
+        <h2>👥 Člani Ekipe</h2>
+        <div class="team-member">
+          <div class="member-name">Simon Drevensek</div>
+          <div class="member-role">Full-stack Developer & DevOps Engineer</div>
+        </div>
+
+        <h2>📝 Opis Projekta</h2>
+        <p class="description">
+          Spletna trgovina je moderna e-commerce aplikacija, razvita z uporabo
+          najnovejših spletnih tehnologij. Projekt vključuje React frontend,
+          Node.js/Express backend, MySQL bazo podatkov in napredni CI/CD
+          pipeline z Docker kontejnerizacijo. Aplikacija omogoča uporabnikom
+          pregledovanje izdelkov, dodajanje v košarico, registracijo, prijavo in
+          nakupovanje čevljev.
+        </p>
+
+        <h2>🚀 Tehnološki Sklad</h2>
+        <div class="tech-stack">
+          <span class="tech-item">React 18</span>
+          <span class="tech-item">Node.js</span>
+          <span class="tech-item">Express.js</span>
+          <span class="tech-item">MySQL</span>
+          <span class="tech-item">Docker</span>
+          <span class="tech-item">GitHub Actions</span>
+          <span class="tech-item">Vercel</span>
+          <span class="tech-item">Docker Hub</span>
+          <span class="tech-item">Jest Testing</span>
+          <span class="tech-item">Nginx</span>
+        </div>
+
+        <h2>✨ Ključne Funkcionalnosti</h2>
+        <div class="features">
+          <div class="feature">
+            <div class="feature-icon">🛒</div>
+            <h3>Košarica</h3>
+            <p>Dodajanje in upravljanje izdelkov v košarici</p>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">👤</div>
+            <h3>Uporabniški Sistem</h3>
+            <p>Registracija, prijava in upravljanje profilov</p>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">💳</div>
+            <h3>Nakupovanje</h3>
+            <p>Varno in enostavno nakupovanje izdelkov</p>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">📱</div>
+            <h3>Odzivni Dizajn</h3>
+            <p>Optimizirano za vse naprave in zaslone</p>
+          </div>
+        </div>
+
+        <h2>🔧 CI/CD Pipeline</h2>
+        <p class="description">
+          Projekt vključuje napredni CI/CD pipeline z GitHub Actions, ki
+          avtomatično:
+        </p>
+        <ul style="margin: 1rem 0; padding-left: 2rem">
+          <li>Izvaja teste za frontend in backend</li>
+          <li>Gradi aplikacijo z optimiziranim caching-om</li>
+          <li>Ustvarja Docker slike in jih objavlja na Docker Hub</li>
+          <li>Deploya aplikacijo na Vercel</li>
+          <li>Objavlja statično stran na GitHub Pages</li>
+          <li>Upravlja Development in Production okolja</li>
+        </ul>
+
+        <h2>🌐 Environments</h2>
+        <div class="features">
+          <div class="feature">
+            <div class="feature-icon">🧪</div>
+            <h3>Development</h3>
+            <p>
+              Testno okolje za razvoj z avtomatskim deploymentom iz main veje
+            </p>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">🚀</div>
+            <h3>Production</h3>
+            <p>Produkcijsko okolje z ročno odobritvijo za production vejo</p>
+          </div>
+        </div>
+
+        <a
+          href="https://github.com/DrevensekSimon/Spletna-trgovina"
+          class="github-link"
+          target="_blank"
+        >
+          📂 Poglej Projekt na GitHub
+        </a>
+      </div>
+    </div>
+  </body>
+</html>
