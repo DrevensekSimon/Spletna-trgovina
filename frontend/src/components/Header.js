@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { ShoppingCart, User, LogOut, Menu } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
-// Test SonarCloud integration
+// Test optimized pipeline with security scanning
 
 function Header() {
   const { user, logout } = useAuth();
