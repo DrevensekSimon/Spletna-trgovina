@@ -226,7 +226,7 @@ jobs:
         run: npm test -- --coverage --watchAll=false
 
       - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
+        uses: SonarSource/sonarqube-scan-action@v5.0.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
@@ -362,6 +362,8 @@ jobs:
         frontend-tests,
         build,
         docker-build,
+        sonarcloud,
+        quality-gates,
         deploy-pages,
         deploy-development,
         deploy-production,
@@ -375,6 +377,8 @@ jobs:
           echo "Frontend tests: ${{ needs.frontend-tests.result }}"
           echo "Build: ${{ needs.build.result }}"
           echo "Docker build: ${{ needs.docker-build.result }}"
+          echo "SonarCloud: ${{ needs.sonarcloud.result }}"
+          echo "Quality Gates: ${{ needs.quality-gates.result }}"
           echo "GitHub Pages: ${{ needs.deploy-pages.result }}"
           echo "Development deploy: ${{ needs.deploy-development.result }}"
           echo "Production deploy: ${{ needs.deploy-production.result }}"
@@ -386,6 +390,16 @@ jobs:
 
           if [ "${{ needs.build.result }}" != "success" ]; then
             echo "Build failed!"
+            exit 1
+          fi
+
+          if [ "${{ needs.sonarcloud.result }}" != "success" ]; then
+            echo "SonarCloud analysis failed!"
+            exit 1
+          fi
+
+          if [ "${{ needs.quality-gates.result }}" == "failure" ]; then
+            echo "Quality Gates failed! Pipeline terminated."
             exit 1
           fi
 
