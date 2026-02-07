@@ -16,7 +16,7 @@ COPY . .
 RUN npm run build
 
 # Production stage z nginx
-FROM nginx:alpine
+FROM nginx:1.29.5-alpine3.23
 
 # Kopiraj build iz builder stage
 COPY --from=builder /app/build /usr/share/nginx/html
