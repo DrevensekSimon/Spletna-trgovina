@@ -36,7 +36,7 @@ function ProductsPage() {
     <div className="py-12 px-4 bg-gray-50 min-h-screen">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8 gap-4">
-          <h1 className="text-4xl font-bold">Air Jordan 1 Kolekcija</h1>
+          <h1 className="text-4xl font-bold">Shoe Shop kolekcija</h1>
           
           {/* Filter */}
           <div className="flex items-center gap-2">

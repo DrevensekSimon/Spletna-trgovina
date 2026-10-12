@@ -3,6 +3,7 @@ const cors = require("cors");
 const mysql = require("mysql2/promise");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const database = require("./config/database");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -13,10 +14,7 @@ app.use(express.json());
 
 // Database connection pool
 const pool = mysql.createPool({
-  host: process.env.DB_HOST || "localhost",
-  user: process.env.DB_USER || "shopuser",
-  password: process.env.DB_PASSWORD || "shoppassword",
-  database: process.env.DB_NAME || "sneaker_shop",
+  ...database,
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,

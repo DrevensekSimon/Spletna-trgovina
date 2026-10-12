@@ -1,0 +1,330 @@
+[
+  {
+    "name": "Air Jordan 1 Retro High OG \"Chicago\"",
+    "description": "The iconic Chicago colorway featuring red, white, and black. A timeless classic that started it all.",
+    "price": 180.0,
+    "image_url": "https://images.unsplash.com/photo-1600269452121-4f2416e55c28?w=500",
+    "stock": 50,
+    "sizes": [
+      {
+        "size": "38",
+        "stock": 5
+      },
+      {
+        "size": "39",
+        "stock": 6
+      },
+      {
+        "size": "40",
+        "stock": 8
+      },
+      {
+        "size": "41",
+        "stock": 10
+      },
+      {
+        "size": "42",
+        "stock": 8
+      },
+      {
+        "size": "43",
+        "stock": 7
+      },
+      {
+        "size": "44",
+        "stock": 4
+      },
+      {
+        "size": "45",
+        "stock": 2
+      }
+    ]
+  },
+  {
+    "name": "Air Jordan 1 Retro High OG \"Bred\"",
+    "description": "The legendary Bred (Black/Red) colorway. One of the most sought-after Jordan 1s ever made.",
+    "price": 170.0,
+    "image_url": "https://images.unsplash.com/photo-1597045566677-8cf032ed6634?w=500",
+    "stock": 45,
+    "sizes": [
+      {
+        "size": "38",
+        "stock": 4
+      },
+      {
+        "size": "39",
+        "stock": 5
+      },
+      {
+        "size": "40",
+        "stock": 7
+      },
+      {
+        "size": "41",
+        "stock": 9
+      },
+      {
+        "size": "42",
+        "stock": 8
+      },
+      {
+        "size": "43",
+        "stock": 6
+      },
+      {
+        "size": "44",
+        "stock": 4
+      },
+      {
+        "size": "45",
+        "stock": 2
+      }
+    ]
+  },
+  {
+    "name": "Air Jordan 1 Retro High OG \"Royal Blue\"",
+    "description": "Classic Royal Blue and Black combination. A must-have for any sneaker collection.",
+    "price": 170.0,
+    "image_url": "https://images.unsplash.com/photo-1605348532760-6753d2c43329?w=500",
+    "stock": 40,
+    "sizes": [
+      {
+        "size": "38",
+        "stock": 4
+      },
+      {
+        "size": "39",
+        "stock": 5
+      },
+      {
+        "size": "40",
+        "stock": 6
+      },
+      {
+        "size": "41",
+        "stock": 8
+      },
+      {
+        "size": "42",
+        "stock": 7
+      },
+      {
+        "size": "43",
+        "stock": 5
+      },
+      {
+        "size": "44",
+        "stock": 3
+      },
+      {
+        "size": "45",
+        "stock": 2
+      }
+    ]
+  },
+  {
+    "name": "Air Jordan 1 Retro High OG \"Shadow\"",
+    "description": "The sleek Shadow colorway in black and grey. Perfect for everyday wear.",
+    "price": 160.0,
+    "image_url": "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=500",
+    "stock": 55,
+    "sizes": [
+      {
+        "size": "38",
+        "stock": 6
+      },
+      {
+        "size": "39",
+        "stock": 7
+      },
+      {
+        "size": "40",
+        "stock": 9
+      },
+      {
+        "size": "41",
+        "stock": 11
+      },
+      {
+        "size": "42",
+        "stock": 9
+      },
+      {
+        "size": "43",
+        "stock": 7
+      },
+      {
+        "size": "44",
+        "stock": 4
+      },
+      {
+        "size": "45",
+        "stock": 2
+      }
+    ]
+  },
+  {
+    "name": "Air Jordan 1 Retro High OG \"Pine Green\"",
+    "description": "Fresh Pine Green colorway. A standout addition to the Jordan 1 lineup.",
+    "price": 165.0,
+    "image_url": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=500",
+    "stock": 35,
+    "sizes": [
+      {
+        "size": "38",
+        "stock": 3
+      },
+      {
+        "size": "39",
+        "stock": 4
+      },
+      {
+        "size": "40",
+        "stock": 6
+      },
+      {
+        "size": "41",
+        "stock": 8
+      },
+      {
+        "size": "42",
+        "stock": 6
+      },
+      {
+        "size": "43",
+        "stock": 4
+      },
+      {
+        "size": "44",
+        "stock": 3
+      },
+      {
+        "size": "45",
+        "stock": 1
+      }
+    ]
+  },
+  {
+    "name": "Air Jordan 1 Retro High OG \"University Blue\"",
+    "description": "Clean University Blue colorway inspired by MJs alma mater.",
+    "price": 175.0,
+    "image_url": "https://images.unsplash.com/photo-1584735175315-9d5df23860e6?w=500",
+    "stock": 30,
+    "sizes": [
+      {
+        "size": "38",
+        "stock": 3
+      },
+      {
+        "size": "39",
+        "stock": 4
+      },
+      {
+        "size": "40",
+        "stock": 5
+      },
+      {
+        "size": "41",
+        "stock": 7
+      },
+      {
+        "size": "42",
+        "stock": 5
+      },
+      {
+        "size": "43",
+        "stock": 3
+      },
+      {
+        "size": "44",
+        "stock": 2
+      },
+      {
+        "size": "45",
+        "stock": 1
+      }
+    ]
+  },
+  {
+    "name": "Air Jordan 1 Low \"Triple White\"",
+    "description": "Clean all-white low-top silhouette. Versatile and timeless.",
+    "price": 110.0,
+    "image_url": "https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=500",
+    "stock": 60,
+    "sizes": [
+      {
+        "size": "38",
+        "stock": 7
+      },
+      {
+        "size": "39",
+        "stock": 8
+      },
+      {
+        "size": "40",
+        "stock": 10
+      },
+      {
+        "size": "41",
+        "stock": 12
+      },
+      {
+        "size": "42",
+        "stock": 10
+      },
+      {
+        "size": "43",
+        "stock": 7
+      },
+      {
+        "size": "44",
+        "stock": 4
+      },
+      {
+        "size": "45",
+        "stock": 2
+      }
+    ]
+  },
+  {
+    "name": "Air Jordan 1 Mid \"Smoke Grey\"",
+    "description": "Smoke Grey mid-top version. Perfect balance of style and comfort.",
+    "price": 125.0,
+    "image_url": "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=500",
+    "stock": 48,
+    "sizes": [
+      {
+        "size": "38",
+        "stock": 5
+      },
+      {
+        "size": "39",
+        "stock": 6
+      },
+      {
+        "size": "40",
+        "stock": 8
+      },
+      {
+        "size": "41",
+        "stock": 10
+      },
+      {
+        "size": "42",
+        "stock": 8
+      },
+      {
+        "size": "43",
+        "stock": 6
+      },
+      {
+        "size": "44",
+        "stock": 3
+      },
+      {
+        "size": "45",
+        "stock": 2
+      }
+    ]
+  }
+]

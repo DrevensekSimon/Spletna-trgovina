@@ -21,10 +21,10 @@ function HomePage() {
       <section className="bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white py-20 px-4">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-5xl md:text-7xl font-bold mb-6">
-            AIR JORDAN <span className="text-red-500">1</span>
+            SHOE <span className="text-red-500">SHOP</span>
           </h1>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Odkrijte legendarno kolekcijo Air Jordan 1 čevljev. Ikonični dizajn, neprekosljiv stil.
+            Odkrijte kolekcijo čevljev Shoe Shop. Ikonični dizajn, neprekosljiv stil.
           </p>
           <Link
             to="/products"

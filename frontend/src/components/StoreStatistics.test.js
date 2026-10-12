@@ -3,10 +3,9 @@ import { render, screen, waitFor } from '@testing-library/react';
 import StoreStatistics from './StoreStatistics';
 
 describe('StoreStatistics Component', () => {
-  test('renders loading state initially', () => {
+  test('displays the demo order count after loading', () => {
     render(<StoreStatistics />);
-    const spinner = screen.getByRole('img', { hidden: true });
-    expect(spinner).toBeInTheDocument();
+    expect(screen.getByText('129')).toBeInTheDocument();
   });
 
   test('renders statistics after loading', async () => {
