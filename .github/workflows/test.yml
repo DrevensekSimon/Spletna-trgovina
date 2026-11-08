@@ -3,7 +3,7 @@ name: CI/CD Pipeline
 on:
   workflow_dispatch:
   push:
-    branches: [main, master, develop, production]
+    branches: [main, master, develop, production, naloga-4-marko]
   pull_request:
     branches: [main, master, develop, production]
 
@@ -153,11 +153,11 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: functional-test-reports
+          name: functional-test-reports-marko
           path: |
             playwright-report/
-            output/naloga-4/results.json
-            output/naloga-4/junit.xml
+            output/naloga-4-marko/results.json
+            output/naloga-4-marko/junit.xml
             test-results/
           retention-days: 30
 
@@ -226,7 +226,7 @@ jobs:
     name: Build Docker Images
     runs-on: ubuntu-latest
     needs: [build]
-    if: success()
+    if: success() && github.ref_name != 'naloga-4-marko'
     timeout-minutes: 20
 
     steps:

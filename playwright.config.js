@@ -13,8 +13,8 @@ module.exports = defineConfig({
   reporter: [
     ['list'],
     ['html', { outputFolder: 'playwright-report', open: 'never' }],
-    ['junit', { outputFile: 'output/naloga-4/junit.xml' }],
-    ['json', { outputFile: 'output/naloga-4/results.json' }],
+    ['junit', { outputFile: 'output/naloga-4-marko/junit.xml' }],
+    ['json', { outputFile: 'output/naloga-4-marko/results.json' }],
   ],
   use: {
     baseURL,

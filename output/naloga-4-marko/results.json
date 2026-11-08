@@ -1,0 +1,622 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\MAGISTERIJ\\LETNIK2\\Zanesljivost in testiranje IS\\00\\Spletna-trgovina\\node_modules\\@playwright\\test\\cli.js",
+      "test"
+    ],
+    "configFile": "C:\\MAGISTERIJ\\LETNIK2\\Zanesljivost in testiranje IS\\00\\Spletna-trgovina\\playwright.config.js",
+    "rootDir": "C:/MAGISTERIJ/LETNIK2/Zanesljivost in testiranje IS/00/Spletna-trgovina/e2e/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 600000,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/MAGISTERIJ/LETNIK2/Zanesljivost in testiranje IS/00/Spletna-trgovina/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "C:/MAGISTERIJ/LETNIK2/Zanesljivost in testiranje IS/00/Spletna-trgovina/e2e/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\MAGISTERIJ\\LETNIK2\\Zanesljivost in testiranje IS\\00\\Spletna-trgovina\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "chromium",
+        "testDir": "C:\\MAGISTERIJ\\LETNIK2\\Zanesljivost in testiranje IS\\00\\Spletna-trgovina\\e2e\\tests",
+        "snapshotDir": "C:\\MAGISTERIJ\\LETNIK2\\Zanesljivost in testiranje IS\\00\\Spletna-trgovina\\e2e\\tests",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:3101",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/158.0.8127.18 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium",
+          "locale": "sl-SI",
+          "timezoneId": "Europe/Ljubljana",
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "video": "retain-on-failure",
+          "browserName": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "html",
+        {
+          "outputFolder": "playwright-report",
+          "open": "never"
+        }
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "output/naloga-4-marko/junit.xml"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "output/naloga-4-marko/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.65.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "tp01-prijava.spec.js",
+      "file": "tp01-prijava.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "TP-01 Prijava uporabnika",
+          "file": "tp01-prijava.spec.js",
+          "line": 6,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TP-01 A | Uspešna prijava s pravilnim geslom",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1532,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Predpogoj: R1 je registriran, prijava s pravilnim geslom preverjena, uporabnik odjavljen",
+                          "duration": 680
+                        },
+                        {
+                          "title": "1. Na domači strani klikni »Prijava« zgoraj desno",
+                          "duration": 81
+                        },
+                        {
+                          "title": "2. Vnesi e-pošto R1 in Prijava123!, nato klikni »Prijava«",
+                          "duration": 86
+                        },
+                        {
+                          "title": "3. Pričakovano: domača stran, v glavi »Testni« in »Naročila«",
+                          "duration": 128
+                        },
+                        {
+                          "title": "3. Osveži stran – prijava ostane aktivna",
+                          "duration": 258
+                        }
+                      ],
+                      "startTime": "2026-11-08T21:29:22.053Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "9ca839a8e75c581aa0b4-714b19d788e7ed4519bd",
+              "file": "tp01-prijava.spec.js",
+              "line": 7,
+              "column": 3
+            },
+            {
+              "title": "TP-01 B | Prijava z napačnim geslom je zavrnjena",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1266,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Predpogoj: lastna priprava R1 v novem oknu (neodvisno od scenarija A)",
+                          "duration": 634
+                        },
+                        {
+                          "title": "1. Klikni »Prijava«",
+                          "duration": 60
+                        },
+                        {
+                          "title": "2. Vnesi e-pošto R1 in Napacno123!, nato klikni »Prijava«",
+                          "duration": 97
+                        },
+                        {
+                          "title": "3. Pričakovano: obvestilo »Napačen email ali geslo«, ostane na prijavi, odjavljen",
+                          "duration": 126
+                        },
+                        {
+                          "title": "Končno stanje: uporabnik je odjavljen tudi po osvežitvi",
+                          "duration": 208
+                        }
+                      ],
+                      "startTime": "2026-11-08T21:29:23.706Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "9ca839a8e75c581aa0b4-cec55a7c27d59ee369d6",
+              "file": "tp01-prijava.spec.js",
+              "line": 39,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "tp02-registracija.spec.js",
+      "file": "tp02-registracija.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TP-02 | Registracija novega uporabnika in samodejna prijava",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1211,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Predpogoj: uporabnik je odjavljen, e-pošta še ni registrirana",
+                      "duration": 383
+                    },
+                    {
+                      "title": "1. Klikni »Prijava«, nato povezavo »Registracija«",
+                      "duration": 112
+                    },
+                    {
+                      "title": "2. Izpolni »Ime«, »Priimek«, »Email« in »Geslo«",
+                      "duration": 48
+                    },
+                    {
+                      "title": "3. Klikni »Registriraj se«",
+                      "duration": 36
+                    },
+                    {
+                      "title": "4. Pričakovano: domača stran, samodejna prijava, v glavi »Test« in »Naročila«",
+                      "duration": 127
+                    },
+                    {
+                      "title": "4. Osveži stran – prijava ostane aktivna",
+                      "duration": 276
+                    },
+                    {
+                      "title": "Končno stanje: nov račun je shranjen z vnesenimi podatki",
+                      "duration": 4
+                    }
+                  ],
+                  "startTime": "2026-11-08T21:29:24.991Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "977a4677d491d166ec18-1d2e56ee7e520a92fbe1",
+          "file": "tp02-registracija.spec.js",
+          "line": 6,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "tp03-filtriranje.spec.js",
+      "file": "tp03-filtriranje.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TP-03 | Filter Low Top in obnovitev celotnega kataloga",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 887,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Predpogoj: katalog vsebuje Low Top, Mid Top in High Top ter Triple White",
+                      "duration": 2
+                    },
+                    {
+                      "title": "1. Klikni »Izdelki« in »Vsi izdelki«; zabeleži nazive in število",
+                      "duration": 524
+                    },
+                    {
+                      "title": "2. Klikni »Low Top« in preveri nazive vseh prikazanih modelov",
+                      "duration": 69
+                    },
+                    {
+                      "title": "3. Klikni »Vsi izdelki« – nazivi in število so enaki začetnemu katalogu",
+                      "duration": 77
+                    }
+                  ],
+                  "startTime": "2026-11-08T21:29:26.215Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a029995536ae8a041e38-8797d88cd9a90b37171a",
+          "file": "tp03-filtriranje.spec.js",
+          "line": 6,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "tp04-kosarica.spec.js",
+      "file": "tp04-kosarica.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TP-04 | Dodajanje Chicago 42 v košarico (prazna košarica)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1506,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Predpogoj: Chicago 42 je na zalogi; pripravi začetno stanje košarice",
+                      "duration": 392
+                    },
+                    {
+                      "title": "Predpogoj: odpri košarico in zabeleži q0, S0 in druge postavke",
+                      "duration": 344
+                    },
+                    {
+                      "title": "1. Klikni »Izdelki«, nato kartico izdelka Chicago",
+                      "duration": 142
+                    },
+                    {
+                      "title": "2. Preveri ceno 180 € in da je gumb »42« omogočen; klikni ga",
+                      "duration": 73
+                    },
+                    {
+                      "title": "3. Klikni »Dodaj v košarico«",
+                      "duration": 57
+                    },
+                    {
+                      "title": "4. Pričakovano: košarica, Chicago 42 ima količino q0+1 = 1, skupaj S0+180 = 180 €",
+                      "duration": 32
+                    },
+                    {
+                      "title": "4. Druge postavke so nespremenjene",
+                      "duration": 37
+                    },
+                    {
+                      "title": "Končno stanje: izdelek je v košarici, naročilo ni oddano",
+                      "duration": 269
+                    }
+                  ],
+                  "startTime": "2026-11-08T21:29:27.122Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "545246e562c2d05adfab-2a0ae3910a6d0b6b8163",
+          "file": "tp04-kosarica.spec.js",
+          "line": 20,
+          "column": 3
+        },
+        {
+          "title": "TP-04 | Dodajanje Chicago 42 v košarico (košarica z drugo postavko in že enim Chicago 42)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1473,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Predpogoj: Chicago 42 je na zalogi; pripravi začetno stanje košarice",
+                      "duration": 357
+                    },
+                    {
+                      "title": "Predpogoj: odpri košarico in zabeleži q0, S0 in druge postavke",
+                      "duration": 346
+                    },
+                    {
+                      "title": "1. Klikni »Izdelki«, nato kartico izdelka Chicago",
+                      "duration": 165
+                    },
+                    {
+                      "title": "2. Preveri ceno 180 € in da je gumb »42« omogočen; klikni ga",
+                      "duration": 61
+                    },
+                    {
+                      "title": "3. Klikni »Dodaj v košarico«",
+                      "duration": 44
+                    },
+                    {
+                      "title": "4. Pričakovano: košarica, Chicago 42 ima količino q0+1 = 2, skupaj S0+180 = 485 €",
+                      "duration": 32
+                    },
+                    {
+                      "title": "4. Druge postavke so nespremenjene",
+                      "duration": 44
+                    },
+                    {
+                      "title": "Končno stanje: izdelek je v košarici, naročilo ni oddano",
+                      "duration": 271
+                    }
+                  ],
+                  "startTime": "2026-11-08T21:29:28.640Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "545246e562c2d05adfab-856d6ede47d95849bb2a",
+          "file": "tp04-kosarica.spec.js",
+          "line": 20,
+          "column": 3
+        }
+      ]
+    },
+    {
+      "title": "tp05-narocilo.spec.js",
+      "file": "tp05-narocilo.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TP-05 | Oddaja naročila, shranjeno naročilo in prazna košarica",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1992,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Predpogoj: neodvisno pripravi in prijavi registriran račun",
+                      "duration": 824
+                    },
+                    {
+                      "title": "Predpogoj: zabeleži obstoječa naročila",
+                      "duration": 72
+                    },
+                    {
+                      "title": "Predpogoj: košarica vsebuje samo Chicago 42, količina 1, 180 € (na zalogi)",
+                      "duration": 334
+                    },
+                    {
+                      "title": "1. V košarici klikni »Nadaljuj na blagajno«; preveri naslov »Blagajna«",
+                      "duration": 52
+                    },
+                    {
+                      "title": "2. Izpolni dostavna polja in preveri povzetek: Chicago, 42, 1, skupaj 180 €",
+                      "duration": 65
+                    },
+                    {
+                      "title": "3. Klikni »Potrdi naročilo«, preveri »Naročilo uspešno oddano!« in potrdi z »OK«",
+                      "duration": 71
+                    },
+                    {
+                      "title": "Pričakovano: po potrditvi obvestila se odpre »Moja naročila«",
+                      "duration": 38
+                    },
+                    {
+                      "title": "4. Poišči nov ID glede na začetni seznam in preveri vsebino, znesek in stanje",
+                      "duration": 51
+                    },
+                    {
+                      "title": "4. Osveži stran in ponovno preveri isti zapis",
+                      "duration": 251
+                    },
+                    {
+                      "title": "5. Odpri košarico – prikazuje »Vaša košarica je prazna«",
+                      "duration": 58
+                    }
+                  ],
+                  "startTime": "2026-11-08T21:29:30.128Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b5f7087f27ae7bb21cea-bd452a57125cca58a215",
+          "file": "tp05-narocilo.spec.js",
+          "line": 10,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-08T21:29:01.954Z",
+    "duration": 30726.751,
+    "expected": 7,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

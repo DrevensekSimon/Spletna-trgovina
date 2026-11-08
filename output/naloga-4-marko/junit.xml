@@ -1,0 +1,26 @@
+<testsuites id="" name="" tests="7" failures="0" skipped="0" errors="0" time="30.726751">
+<testsuite name="tp01-prijava.spec.js" timestamp="2026-11-08T21:29:21.285Z" hostname="chromium" tests="2" failures="0" skipped="0" time="2.798" errors="0">
+<testcase name="TP-01 Prijava uporabnika › TP-01 A | Uspešna prijava s pravilnim geslom" classname="tp01-prijava.spec.js" time="1.532">
+</testcase>
+<testcase name="TP-01 Prijava uporabnika › TP-01 B | Prijava z napačnim geslom je zavrnjena" classname="tp01-prijava.spec.js" time="1.266">
+</testcase>
+</testsuite>
+<testsuite name="tp02-registracija.spec.js" timestamp="2026-11-08T21:29:21.285Z" hostname="chromium" tests="1" failures="0" skipped="0" time="1.211" errors="0">
+<testcase name="TP-02 | Registracija novega uporabnika in samodejna prijava" classname="tp02-registracija.spec.js" time="1.211">
+</testcase>
+</testsuite>
+<testsuite name="tp03-filtriranje.spec.js" timestamp="2026-11-08T21:29:21.285Z" hostname="chromium" tests="1" failures="0" skipped="0" time="0.887" errors="0">
+<testcase name="TP-03 | Filter Low Top in obnovitev celotnega kataloga" classname="tp03-filtriranje.spec.js" time="0.887">
+</testcase>
+</testsuite>
+<testsuite name="tp04-kosarica.spec.js" timestamp="2026-11-08T21:29:21.285Z" hostname="chromium" tests="2" failures="0" skipped="0" time="2.979" errors="0">
+<testcase name="TP-04 | Dodajanje Chicago 42 v košarico (prazna košarica)" classname="tp04-kosarica.spec.js" time="1.506">
+</testcase>
+<testcase name="TP-04 | Dodajanje Chicago 42 v košarico (košarica z drugo postavko in že enim Chicago 42)" classname="tp04-kosarica.spec.js" time="1.473">
+</testcase>
+</testsuite>
+<testsuite name="tp05-narocilo.spec.js" timestamp="2026-11-08T21:29:21.285Z" hostname="chromium" tests="1" failures="0" skipped="0" time="1.992" errors="0">
+<testcase name="TP-05 | Oddaja naročila, shranjeno naročilo in prazna košarica" classname="tp05-narocilo.spec.js" time="1.992">
+</testcase>
+</testsuite>
+</testsuites>
