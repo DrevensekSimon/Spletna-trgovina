@@ -43,8 +43,9 @@ function RegisterPage() {
           <div className="space-y-4">
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium mb-1">Ime</label>
+                <label htmlFor="register-first-name" className="block text-sm font-medium mb-1">Ime</label>
                 <input
+                  id="register-first-name"
                   type="text"
                   value={form.firstName}
                   onChange={e => setForm({ ...form, firstName: e.target.value })}
@@ -53,8 +54,9 @@ function RegisterPage() {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium mb-1">Priimek</label>
+                <label htmlFor="register-last-name" className="block text-sm font-medium mb-1">Priimek</label>
                 <input
+                  id="register-last-name"
                   type="text"
                   value={form.lastName}
                   onChange={e => setForm({ ...form, lastName: e.target.value })}
@@ -64,8 +66,9 @@ function RegisterPage() {
               </div>
             </div>
             <div>
-              <label className="block text-sm font-medium mb-1">Email</label>
+              <label htmlFor="register-email" className="block text-sm font-medium mb-1">Email</label>
               <input
+                id="register-email"
                 type="email"
                 value={form.email}
                 onChange={e => setForm({ ...form, email: e.target.value })}
@@ -74,8 +77,9 @@ function RegisterPage() {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium mb-1">Geslo</label>
+              <label htmlFor="register-password" className="block text-sm font-medium mb-1">Geslo</label>
               <input
+                id="register-password"
                 type="password"
                 value={form.password}
                 onChange={e => setForm({ ...form, password: e.target.value })}

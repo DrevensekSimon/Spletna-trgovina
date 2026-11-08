@@ -28,7 +28,7 @@ function Header() {
           </nav>
 
           <div className="flex items-center gap-4">
-            <Link to="/cart" className="relative hover:text-red-500 transition">
+            <Link to="/cart" aria-label="Košarica" className="relative hover:text-red-500 transition">
               <ShoppingCart size={24} />
               {itemCount > 0 && (
                 <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
@@ -40,7 +40,7 @@ function Header() {
             {user ? (
               <div className="hidden md:flex items-center gap-3">
                 <span className="text-sm text-gray-300">{user.firstName}</span>
-                <button onClick={logout} className="hover:text-red-500 transition">
+                <button onClick={logout} aria-label="Odjava" className="hover:text-red-500 transition">
                   <LogOut size={20} />
                 </button>
               </div>

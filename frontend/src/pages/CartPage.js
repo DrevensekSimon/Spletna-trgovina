@@ -33,6 +33,7 @@ function CartPage() {
           {items.map((item, idx) => (
             <div
               key={`${item.productId}-${item.size}`}
+              data-testid="cart-item"
               className={`flex items-center gap-4 p-4 ${idx > 0 ? 'border-t' : ''}`}
             >
               <img
@@ -52,7 +53,7 @@ function CartPage() {
                 >
                   <Minus size={16} />
                 </button>
-                <span className="w-8 text-center font-semibold">{item.quantity}</span>
+                <span data-testid="cart-quantity" className="w-8 text-center font-semibold">{item.quantity}</span>
                 <button
                   onClick={() => updateQuantity(item.productId, item.size, item.quantity + 1)}
                   className="w-8 h-8 rounded-full border flex items-center justify-center hover:bg-gray-100"
@@ -73,7 +74,7 @@ function CartPage() {
         <div className="bg-white rounded-xl shadow-md p-6">
           <div className="flex justify-between items-center text-xl font-bold mb-6">
             <span>Skupaj:</span>
-            <span className="text-red-500">{total.toFixed(2)} €</span>
+            <span data-testid="cart-total" className="text-red-500">{total.toFixed(2)} €</span>
           </div>
           <button
             onClick={() => user ? navigate('/checkout') : navigate('/login?redirect=checkout')}

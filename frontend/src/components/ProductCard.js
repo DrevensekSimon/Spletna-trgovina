@@ -5,6 +5,8 @@ function ProductCard({ product }) {
   return (
     <Link
       to={`/products/${product.id}`}
+      aria-label={product.name}
+      data-testid="product-card"
       className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition group"
     >
       <div className="aspect-square overflow-hidden bg-gray-100">

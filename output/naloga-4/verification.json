@@ -1,0 +1,56 @@
+{
+  "checkedAt": "2026-11-08T20:06:25.309Z",
+  "node": "v24.22.1",
+  "os": "macOS 26.4",
+  "architecture": "arm64",
+  "playwright": "1.65.0",
+  "chromium": "158.0.8127.18",
+  "mysql": "8.0.46",
+  "baseURL": "http://127.0.0.1:3101",
+  "apiURL": "http://127.0.0.1:5101",
+  "database": "shoe_shop_e2e",
+  "main": {
+    "startTime": "2026-11-08T20:02:58.096Z",
+    "duration": 11402.103,
+    "expected": 6,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "independent": {
+    "startTime": "2026-11-08T20:04:09.030Z",
+    "duration": 7856.5,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "cleanup": {
+    "usersRemaining": 1,
+    "ordersRemaining": 0,
+    "inventoryEntries": 64,
+    "allInventoryRestored": true,
+    "chicago42": 8
+  },
+  "unitTests": {
+    "backendPassed": 10,
+    "frontendPassed": 20
+  },
+  "workflow": {
+    "yamlValidated": true,
+    "buildRequiresFunctionalTests": true,
+    "remoteRunPerformed": false
+  },
+  "baseCommit": "e7f56383bbc0a412d2ee59546428477d145585e1",
+  "sourceSha256": {
+    "package.json": "d78143d96085ebf69eb8677179ad4f17fe68e77ae2e370320b91cead24447a39",
+    "package-lock.json": "e0961f6b8c034253c453e54cd037c42fa584f04d65f538f7eb85b7b796cc9a83",
+    "playwright.config.js": "1babf8160d04425b4af64b4db710faba711e06344b3464b69f1d79098c6a3a3b",
+    ".github/workflows/test.yml": "4c61c4e540186739ca298bbe584924c3fe521404b97d1263075cbcfbe05db5f3",
+    "e2e/environment.js": "285a4c2be4b2a22748f3432eaf95a5b9fa86f9ed39844d97e75caad1f2de8fef",
+    "e2e/start-backend.js": "7201390e072363d0dd6d93667b3c97bf5db76f8efce3ec42effa9fe28d9761fe",
+    "e2e/serve-frontend.js": "0fc0773add998cb45263acce8649a86f48b2b24a2e73ae5491bf8704079a73ca",
+    "e2e/fixtures.js": "cc4976c3599358895d8e28cd3a69c127f82ee152d4d1a8d128982efdd58572db",
+    "e2e/tests/shop.spec.js": "083165222721932bf0a4a21c3a8aa1070b0fc3760a569a419237b2c2b0062c7e"
+  }
+}

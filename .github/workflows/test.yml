@@ -1,6 +1,7 @@
 name: CI/CD Pipeline
 
 on:
+  workflow_dispatch:
   push:
     branches: [main, master, develop, production]
   pull_request:
@@ -98,11 +99,73 @@ jobs:
           path: frontend/coverage/
           retention-days: 7
 
+  # Naloga 4: resnični funkcionalni testi React + API + MySQL.
+  functional-tests:
+    name: Functional Tests (Playwright)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: e2e-root-only
+          MYSQL_DATABASE: shoe_shop_e2e
+          MYSQL_USER: e2e
+          MYSQL_PASSWORD: e2e-password
+        ports:
+          - 43306:3306
+        options: >-
+          --health-cmd="mysqladmin ping -h 127.0.0.1"
+          --health-interval=5s
+          --health-timeout=5s
+          --health-retries=30
+    env:
+      E2E_DB_HOST: 127.0.0.1
+      E2E_DB_PORT: 43306
+      E2E_DB_NAME: shoe_shop_e2e
+      E2E_DB_USER: e2e
+      E2E_DB_PASSWORD: e2e-password
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            backend/package-lock.json
+            frontend/package-lock.json
+      - name: Install test dependencies
+        run: npm ci --no-audit --no-fund
+      - name: Install backend dependencies
+        run: npm ci --prefix backend --no-audit --no-fund
+      - name: Install frontend dependencies
+        run: npm ci --prefix frontend --no-audit --no-fund
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Run TP-01 to TP-05
+        run: npm run test:e2e
+      - name: Upload functional test reports and failure evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: functional-test-reports
+          path: |
+            playwright-report/
+            output/naloga-4/results.json
+            output/naloga-4/junit.xml
+            test-results/
+          retention-days: 30
+
   # Build faza
   build:
     name: Build Application
     runs-on: ubuntu-latest
-    needs: [backend-tests, frontend-tests]
+    needs: [backend-tests, frontend-tests, functional-tests]
     if: success()
 
     steps:

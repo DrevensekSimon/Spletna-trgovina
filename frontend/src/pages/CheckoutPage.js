@@ -60,8 +60,9 @@ function CheckoutPage() {
 
           <div className="space-y-4 mb-6">
             <div>
-              <label className="block text-sm font-medium mb-1">Naslov</label>
+              <label htmlFor="shipping-address" className="block text-sm font-medium mb-1">Naslov</label>
               <input
+                id="shipping-address"
                 type="text"
                 value={form.address}
                 onChange={e => setForm({ ...form, address: e.target.value })}
@@ -71,8 +72,9 @@ function CheckoutPage() {
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium mb-1">Mesto</label>
+                <label htmlFor="shipping-city" className="block text-sm font-medium mb-1">Mesto</label>
                 <input
+                  id="shipping-city"
                   type="text"
                   value={form.city}
                   onChange={e => setForm({ ...form, city: e.target.value })}
@@ -81,8 +83,9 @@ function CheckoutPage() {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium mb-1">Poštna številka</label>
+                <label htmlFor="shipping-postal-code" className="block text-sm font-medium mb-1">Poštna številka</label>
                 <input
+                  id="shipping-postal-code"
                   type="text"
                   value={form.postalCode}
                   onChange={e => setForm({ ...form, postalCode: e.target.value })}
@@ -105,7 +108,7 @@ function CheckoutPage() {
             </div>
             <div className="flex justify-between text-xl font-bold border-t pt-4">
               <span>Skupaj:</span>
-              <span className="text-red-500">{total.toFixed(2)} €</span>
+              <span data-testid="checkout-total" className="text-red-500">{total.toFixed(2)} €</span>
             </div>
           </div>
 

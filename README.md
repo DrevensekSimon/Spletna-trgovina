@@ -36,3 +36,17 @@ V drugem terminalu v mapi `frontend` zaženi `npm ci` in `PORT=3001 npm start`.
 `docker compose stop frontend backend`.
 
 Statistična nadzorna plošča trenutno prikazuje obstoječe simulirane podatke.
+
+## Naloga 4 - funkcionalni testi
+
+Navodila za namestitev, zagon šestih scenarijev, pregled rezultatov in
+vključitev v GitHub Actions so v [e2e/README.md](e2e/README.md).
+Hiter zagon po namestitvi odvisnosti in Chromiuma:
+
+```sh
+npm run e2e:db
+npm run test:e2e
+npm run test:e2e:report
+```
+
+Testi uporabljajo svojo začasno bazo in aplikacijo na priključku 3101.

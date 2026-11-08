@@ -65,6 +65,7 @@ function ProductDetailPage() {
                       key={s.size}
                       onClick={() => setSelectedSize(s.size)}
                       disabled={s.stock === 0}
+                      aria-pressed={selectedSize === s.size}
                       className={`w-14 h-14 rounded-lg border-2 font-semibold transition
                         ${selectedSize === s.size
                           ? 'border-black bg-black text-white'

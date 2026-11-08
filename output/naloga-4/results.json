@@ -1,0 +1,439 @@
+{
+  "config": {
+    "argv": [
+      "/opt/homebrew/Cellar/node/25.8.2/bin/node",
+      "/Users/simondrevensek/Documents/Šola/RIRS/Git aplikacija/node_modules/.bin/playwright",
+      "test"
+    ],
+    "configFile": "/Users/simondrevensek/Documents/Šola/RIRS/Git aplikacija/playwright.config.js",
+    "rootDir": "/Users/simondrevensek/Documents/Šola/RIRS/Git aplikacija/e2e/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 600000,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/simondrevensek/Documents/Šola/RIRS/Git aplikacija/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/simondrevensek/Documents/Šola/RIRS/Git aplikacija/e2e/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/simondrevensek/Documents/Šola/RIRS/Git aplikacija/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "chromium",
+        "testDir": "/Users/simondrevensek/Documents/Šola/RIRS/Git aplikacija/e2e/tests",
+        "snapshotDir": "/Users/simondrevensek/Documents/Šola/RIRS/Git aplikacija/e2e/tests",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:3101",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/158.0.8127.18 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium",
+          "locale": "sl-SI",
+          "timezoneId": "Europe/Ljubljana",
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "video": "retain-on-failure",
+          "browserName": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "html",
+        {
+          "outputFolder": "playwright-report",
+          "open": "never"
+        }
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "output/naloga-4/junit.xml"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "output/naloga-4/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.65.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "shop.spec.js",
+      "file": "shop.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TP-01A | Uspešna prijava registriranega računa R1",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1106,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Predpogoji: neodvisno preverjen R1 in čista neprijavljena seja",
+                      "duration": 281
+                    },
+                    {
+                      "title": "Izvedi prijavo in preveri domačo stran, ime ter Naročila",
+                      "duration": 320
+                    },
+                    {
+                      "title": "Preveri aktivno sejo in obstoj prijave po osvežitvi",
+                      "duration": 138
+                    }
+                  ],
+                  "startTime": "2026-11-08T20:38:34.881Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a63ca64a6f071281070d-be37a3938ac84863a9fe",
+          "file": "shop.spec.js",
+          "line": 11,
+          "column": 1
+        },
+        {
+          "title": "TP-01B | Zavrnitev napačnega gesla za preverjen račun R1",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 660,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Uporabi pravi R1 in drugačno napačno geslo",
+                      "duration": 328
+                    },
+                    {
+                      "title": "Preveri obvestilo, URL in neprijavljeno stanje",
+                      "duration": 89
+                    }
+                  ],
+                  "startTime": "2026-11-08T20:38:36.145Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a63ca64a6f071281070d-5ba4eeb81694d930e8fa",
+          "file": "shop.spec.js",
+          "line": 32,
+          "column": 1
+        },
+        {
+          "title": "TP-02 | Registracija novega uporabnika in samodejna prijava",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 765,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Preveri novo e-pošto in odpri obrazec Registracija",
+                      "duration": 284
+                    },
+                    {
+                      "title": "Vnesi vse podatke in ustvari račun prek uporabniškega vmesnika",
+                      "duration": 135
+                    },
+                    {
+                      "title": "Preveri shranjene podatke in prijavo po osvežitvi",
+                      "duration": 170
+                    }
+                  ],
+                  "startTime": "2026-11-08T20:38:36.809Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a63ca64a6f071281070d-dfe8f063e9d8e220449a",
+          "file": "shop.spec.js",
+          "line": 48,
+          "column": 1
+        },
+        {
+          "title": "TP-03 | Low Top prikaže pravilne modele in Vsi izdelki obnovi katalog",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 470,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Preveri predpogoje kataloga in zabeleži začetni seznam",
+                      "duration": 304
+                    },
+                    {
+                      "title": "Preveri vse nazive Low Top in odsotnost High Top ter Mid Top",
+                      "duration": 38
+                    },
+                    {
+                      "title": "Obnovi in primerjaj celoten katalog",
+                      "duration": 33
+                    }
+                  ],
+                  "startTime": "2026-11-08T20:38:37.578Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a63ca64a6f071281070d-0c5f416504ab76509143",
+          "file": "shop.spec.js",
+          "line": 76,
+          "column": 1
+        },
+        {
+          "title": "TP-04 | Chicago 42 poveča količino in znesek ter ohrani druge postavke",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 997,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Začetek s prazno košarico: Chicago 42, količina 1, skupaj 180 €",
+                      "duration": 541
+                    },
+                    {
+                      "title": "Pripravi znano začetno stanje q0 = 1, S0 = 305 € in drugo postavko",
+                      "duration": 175
+                    },
+                    {
+                      "title": "Ponovno dodaj Chicago 42 in preveri q0 + 1 ter S0 + 180 €",
+                      "duration": 174
+                    }
+                  ],
+                  "startTime": "2026-11-08T20:38:38.052Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a63ca64a6f071281070d-6f4e5cc08ab0995603ab",
+          "file": "shop.spec.js",
+          "line": 103,
+          "column": 1
+        },
+        {
+          "title": "TP-05 | Oddaja naročila shrani prave podatke in izprazni košarico",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1298,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Neodvisno pripravi prijavo in točno en Chicago 42 za 180 €",
+                      "duration": 686
+                    },
+                    {
+                      "title": "Odpri blagajno, vnesi dostavo in preveri povzetek",
+                      "duration": 43
+                    },
+                    {
+                      "title": "Oddaj naročilo in preveri ter potrdi obvestilo",
+                      "duration": 49
+                    },
+                    {
+                      "title": "Preveri novo naročilo in ohranitev istega zapisa po osvežitvi",
+                      "duration": 194
+                    },
+                    {
+                      "title": "Preveri prazno košarico tudi po osvežitvi",
+                      "duration": 123
+                    }
+                  ],
+                  "startTime": "2026-11-08T20:38:39.053Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "shranjeno-narocilo.json",
+                      "contentType": "application/json",
+                      "body": "ewogICJvcmRlcklkIjogMSwKICAidXNlcl9pZCI6IDUsCiAgInRvdGFsX2Ftb3VudCI6ICIxODAuMDAiLAogICJzaGlwcGluZ19hZGRyZXNzIjogIlRlc3RuYSB1bGljYSAxMCIsCiAgInNoaXBwaW5nX2NpdHkiOiAiTWFyaWJvciIsCiAgInNoaXBwaW5nX3Bvc3RhbF9jb2RlIjogIjIwMDAiLAogICJzdGF0dXMiOiAicGVuZGluZyIKfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a63ca64a6f071281070d-77e701eda736cb9c1e3b",
+          "file": "shop.spec.js",
+          "line": 140,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-08T20:38:28.870Z",
+    "duration": 11526.301,
+    "expected": 6,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

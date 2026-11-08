@@ -1,0 +1,16 @@
+<testsuites id="" name="" tests="6" failures="0" skipped="0" errors="0" time="11.526301">
+<testsuite name="shop.spec.js" timestamp="2026-11-08T20:38:34.671Z" hostname="chromium" tests="6" failures="0" skipped="0" time="5.296" errors="0">
+<testcase name="TP-01A | Uspešna prijava registriranega računa R1" classname="shop.spec.js" time="1.106">
+</testcase>
+<testcase name="TP-01B | Zavrnitev napačnega gesla za preverjen račun R1" classname="shop.spec.js" time="0.66">
+</testcase>
+<testcase name="TP-02 | Registracija novega uporabnika in samodejna prijava" classname="shop.spec.js" time="0.765">
+</testcase>
+<testcase name="TP-03 | Low Top prikaže pravilne modele in Vsi izdelki obnovi katalog" classname="shop.spec.js" time="0.47">
+</testcase>
+<testcase name="TP-04 | Chicago 42 poveča količino in znesek ter ohrani druge postavke" classname="shop.spec.js" time="0.997">
+</testcase>
+<testcase name="TP-05 | Oddaja naročila shrani prave podatke in izprazni košarico" classname="shop.spec.js" time="1.298">
+</testcase>
+</testsuite>
+</testsuites>

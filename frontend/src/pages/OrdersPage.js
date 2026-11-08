@@ -53,7 +53,7 @@ function OrdersPage() {
         ) : (
           <div className="space-y-4">
             {orders.map(order => (
-              <div key={order.id} className="bg-white rounded-xl shadow-md p-6">
+              <div key={order.id} data-testid="order-card" className="bg-white rounded-xl shadow-md p-6">
                 <div className="flex justify-between items-start mb-4">
                   <div>
                     <p className="text-sm text-gray-500">Naročilo #{order.id}</p>
@@ -83,7 +83,7 @@ function OrdersPage() {
                 </div>
                 <div className="border-t pt-4 flex justify-between">
                   <span className="font-semibold">Skupaj:</span>
-                  <span className="font-bold text-red-500">{parseFloat(order.total_amount).toFixed(2)} €</span>
+                  <span data-testid="order-total" className="font-bold text-red-500">{parseFloat(order.total_amount).toFixed(2)} €</span>
                 </div>
               </div>
             ))}

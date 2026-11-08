@@ -30,3 +30,11 @@ Thumbs.db
 
 # Docker
 *.log
+
+# Playwright browser artifacts (machine-readable results stay in output/naloga-4)
+/playwright-report/
+/test-results/
+/output/naloga-4/independence-artifacts/
+
+# Temporary Word lock files
+~$*.docx
